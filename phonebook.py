@@ -1,6 +1,5 @@
 import os
-def add_contact():
-  return
+
 
 phonebook = []
 
@@ -17,9 +16,7 @@ while True:
   choice = input('Escolha a opção desejada (1-7): ')
 
   if choice == '1':
-    name = input('Digite o nome do contato:')
-    phone = input('Digite o número de telefone do contato:')
-    email = input('Digite o email do contato:')
+    
     
     os.system('cls' if os.name == 'nt' else 'clear')
 
