@@ -1,5 +1,16 @@
 import os
 
+def add_contact(phonebook, contact_name, contact_phone, contact_email):
+  contact={
+    'name': contact_name,
+    'phone': contact_phone,
+    'email': contact_email,
+    'favorite': False
+  }
+  phonebook.append(contact)
+
+  print(f'Contato {contact_name} adicionado com sucesso!')
+  return
 
 phonebook = []
 
@@ -16,7 +27,10 @@ while True:
   choice = input('Escolha a opção desejada (1-7): ')
 
   if choice == '1':
-    
+    contact_name=input('Digite o nome do contato:')
+    contact_phone=input('Digite o número de telefone do contato:')
+    contact_email=input('Digite o email do contato:')
+    add_contact(phonebook, contact_name, contact_phone, contact_email)
     
     os.system('cls' if os.name == 'nt' else 'clear')
 
