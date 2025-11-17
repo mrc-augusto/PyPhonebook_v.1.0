@@ -1,6 +1,6 @@
 import os
 
-def add_contact(phonebook, contact_name, contact_phone, contact_email):
+def add_contact(phonebook):
   contact={
     'name': contact_name,
     'phone': contact_phone,
