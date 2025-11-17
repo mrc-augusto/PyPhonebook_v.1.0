@@ -22,6 +22,27 @@ def show_contacts_list(phonebook):
     fav_status = '⭐' if contact['favorite'] else 'Não'
     print(f'{index +1}. \nNome: {contact['name']} \nTelefone: {contact['phone']}  \nEmail: {contact['email']} \nFavorito: {fav_status}')
 
+def edit_contact(phonebook):
+  if not phonebook:
+    print('A lista de contatos está vázia. Adicione um contato antes de editar.')
+    input ('Pressione Enter para continuar...')
+    os.system('cls' if os.name == 'nt' else 'clear')
+    return
+
+  show_contacts_list(phonebook)
+  
+  index = int(input('Digite o número do contato que deseja editar: ')) - 1
+
+  if 0 <= index < len(phonebook):
+    phonebook[index]['name'] = input('Digite o novo nome do contato: ')
+    phonebook[index]['phone'] = input('Digite o novo número de telefone: ')
+    phonebook[index]['email'] = input('Digite o novo email do contato: ')
+    print('Contato atualizado com suceso!')
+  else:
+    print('Contato não encontrado ou não existe na agenda')
+    input ('Pressione Enter para continuar...')
+  
+
 
 phonebook = []
 
@@ -49,12 +70,12 @@ while True:
     show_contacts_list(phonebook)
     # os.system('cls' if os.name == 'nt' else 'clear')
 
-    pass
 
   elif choice == '3':
+    edit_contact(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
 
-    pass
+    
 
   elif choice == '4':
     os.system('cls' if os.name == 'nt' else 'clear')
