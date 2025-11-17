@@ -12,6 +12,17 @@ def add_contact(phonebook, contact_name, contact_phone, contact_email):
   print(f'Contato {contact_name} adicionado com sucesso!')
   return
 
+def show_contacts_list(phonebook):
+  if not phonebook:
+    print('A lista de contatos está vázia.')
+    return
+  
+  print('Lista de Contatos:')
+  for index, contact in enumerate(phonebook):
+    fav_status = '⭐' if contact['favorite'] else 'Não'
+    print(f'{index +1}. \nNome: {contact['name']} \nTelefone: {contact['phone']}  \nEmail: {contact['email']} \nFavorito: {fav_status}')
+
+
 phonebook = []
 
 while True:
@@ -35,7 +46,8 @@ while True:
     os.system('cls' if os.name == 'nt' else 'clear')
 
   elif choice == '2':
-    os.system('cls' if os.name == 'nt' else 'clear')
+    show_contacts_list(phonebook)
+    # os.system('cls' if os.name == 'nt' else 'clear')
 
     pass
 
