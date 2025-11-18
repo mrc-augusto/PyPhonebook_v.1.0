@@ -1,13 +1,10 @@
 import os
 
 def add_contact(phonebook):
-<<<<<<< HEAD
-=======
   contact_name = input('Digite o nome do contato: ')
   contact_phone = input('Digite o número de telefone do contato: ')
   contact_email = input('Digite o email do contato: ')
 
->>>>>>> feature/add-contact
   contact={
     'name': contact_name,
     'phone': contact_phone,
@@ -48,7 +45,27 @@ def edit_contact(phonebook):
   else:
     print('Contato não encontrado ou não existe na agenda')
     input ('Pressione Enter para continuar...')
+
+def delete_contact(phonebook):
+  if not phonebook:
+    print('A lista de contatos está vázia. Adicione um contato antes de deletar.')
+    input ('Pressione Enter para continuar...')
+    os.system('cls' if os.name == 'nt' else 'clear')
+    return  
   
+  show_contacts_list(phonebook)
+
+  index = int(input('Digite o número do contato que deseja deletar: ')) - 1
+
+  if 0 <= index < len(phonebook):
+    deleted_contact = phonebook.pop(index)
+    print(f'Contato {deleted_contact['name']} deletado com sucesso!')
+  else:
+    print('Contato não encontrado ou não existe na agenda')
+    input ('Pressione Enter para continuar...')
+
+  show_contacts_list(phonebook)
+  input ('Pressione Enter para continuar...')
 
 
 phonebook = []
@@ -91,9 +108,8 @@ while True:
     pass
 
   elif choice == '6':
+    delete_contact(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    pass
 
   elif choice == '7':
     break
