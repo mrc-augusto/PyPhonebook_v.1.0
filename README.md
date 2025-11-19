@@ -30,13 +30,13 @@ python phonebook.py
 
 Menu Options
 
-1: Add contact
-2: View contacts list
-3: Edit a contact
-4: Mark/Unmark contact as favorite
-5: View favorite contacts
-6: Delete contact
-7: Exit
+1. Add contact
+2. View contacts list
+3. Edit a contact
+4. Mark/Unmark contact as favorite
+5. View favorite contacts
+6. Delete contact
+7. Exit
 
 Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
