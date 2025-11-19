@@ -68,6 +68,19 @@ def toggle_contact_status(phonebook):
     print('Contato não encontrado ou não existe na agenda')
     input ('Pressione Enter para continuar...')
 
+def show_favorite_contacts(phonebook):
+  favorite_contacts = [contact for contact in phonebook if contact['favorite']]
+
+  if not favorite_contacts:
+    print('Nenhum contato favorito encontrado.')
+    input ('Pressione Enter para continuar...')
+    return
+  else:
+    print('Contatos Favoritos:')
+    for index, contact in enumerate(favorite_contacts):
+      print(f'{index +1}. \nNome: {contact['name']} \nTelefone: {contact['phone']} \nEmail: {contact['email']}')
+
+      input ('Pressione Enter para continuar...')
 
 def delete_contact(phonebook):
   if not phonebook:
@@ -121,10 +134,9 @@ while True:
     os.system('cls' if os.name == 'nt' else 'clear')
 
   elif choice == '5':
+    show_favorite_contacts(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    pass
-
+ 
   elif choice == '6':
     delete_contact(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
