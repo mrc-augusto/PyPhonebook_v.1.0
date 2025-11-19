@@ -112,13 +112,9 @@ while True:
   elif choice == '2':
     show_contacts_list(phonebook)
     # os.system('cls' if os.name == 'nt' else 'clear')
-
-
   elif choice == '3':
     edit_contact(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    
 
   elif choice == '4':
     toggle_contact_status(phonebook)
