@@ -23,7 +23,7 @@ def show_contacts_list(phonebook):
   
   print('Lista de Contatos:')
   for index, contact in enumerate(phonebook):
-    fav_status = '⭐' if contact['favorite'] else 'Não'
+    fav_status = 'Sim' if contact['favorite'] else 'Não'
     print(f'{index +1}. \nNome: {contact['name']} \nTelefone: {contact['phone']}  \nEmail: {contact['email']} \nFavorito: {fav_status}')
 
 def edit_contact(phonebook):
@@ -45,6 +45,29 @@ def edit_contact(phonebook):
   else:
     print('Contato não encontrado ou não existe na agenda')
     input ('Pressione Enter para continuar...')
+
+def toggle_contact_status(phonebook):
+  if not phonebook:
+    print('A lista de contatos está vázia. Adicione um contato antes de editar.')
+    input ('Pressione Enter para continuar...')
+    os.system('cls' if os.name == 'nt' else 'clear')
+    return
+  
+  show_contacts_list(phonebook)
+  
+  index = int(input('Digite o número do contato que deseja marcar/desmarcar como favorito: ')) - 1
+
+  if 0 <= index < len(phonebook):
+    phonebook[index]['favorite'] = not phonebook[index]['favorite']
+    fav_status = 'Sim' if phonebook[index]['favorite'] else 'Não'
+    print(f'O status do contato {phonebook[index]['name']} foi atualizado para Favorito: {fav_status}')
+
+    show_contacts_list(phonebook)
+    input ('Pressione Enter para continuar...')
+  else:
+    print('Contato não encontrado ou não existe na agenda')
+    input ('Pressione Enter para continuar...')
+
 
 def delete_contact(phonebook):
   if not phonebook:
@@ -98,9 +121,8 @@ while True:
     
 
   elif choice == '4':
+    toggle_contact_status(phonebook)
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    pass
 
   elif choice == '5':
     os.system('cls' if os.name == 'nt' else 'clear')
